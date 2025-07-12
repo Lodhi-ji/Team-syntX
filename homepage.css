@@ -1,0 +1,210 @@
+    :root {
+      --bg-light: #e3f2fd;
+      --bg-gradient: linear-gradient(to bottom right, #e3f2fd, #e1e3ff);
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --border: rgba(0, 0, 0, 0.05);
+      --text-dark: #1e1e2f;
+      --text-light: #5c5c7a;
+      --accent: #6c63ff;
+      --tag-bg: #f0f2ff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .login-btn {
+      background-color: #fff;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+
+    .login-btn:hover {
+      background-color: var(--accent);
+      color: #fff;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      padding: 1.5rem 2rem;
+      background-color: transparent;
+    }
+
+    .filters button,
+    .filters select {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+    }
+
+    .filters button:hover,
+    .filters select:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .filters input {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 0.6rem;
+      border-radius: 10px;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+    }
+
+    .question-list {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .question {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      transition: 0.2s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .question:hover {
+      border-color: var(--accent);
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .question-content {
+      max-width: 85%;
+    }
+
+    .question-content h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+    }
+
+    .question-content p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 0.4rem;
+    }
+
+    .tags {
+      margin-top: 0.6rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: var(--tag-bg);
+      color: var(--accent);
+      padding: 0.3rem 0.7rem;
+      border-radius: 8px;
+      margin-right: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .answers {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 0.6rem 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      align-self: center;
+      font-size: 0.85rem;
+    }
+
+    .pagination {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .pagination a,
+    .pagination span {
+      color: var(--text-light);
+      margin: 0 0.3rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .pagination .active {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .header-btns {
+      display: flex;
+      gap: 0.7rem;
+    }
+    .signup-btn {
+      background-color: var(--accent);
+      color: #fff;
+      border: 2px solid var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+    .signup-btn:hover {
+      background-color: #fff;
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .question {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .question-content {
+        max-width: 100%;
+      }
+
+      .answers {
+        align-self: flex-start;
+      }
+    }
