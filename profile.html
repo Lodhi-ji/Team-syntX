@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Profile</title>
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="profile-header">
+        <img src="https://i.pravatar.cc/200" alt="Profile Picture" class="profile-img" />
+        <h1 class="profile-name">Ritik Lodhi</h1>
+      </div>
+      <ul class="tab-list">
+        <li class="tab active" data-tab="basic-info">Basic Info</li>
+        <li class="tab" data-tab="questions-asked">Questions Asked</li>
+        <li class="tab" data-tab="questions-answered">Questions Answered</li>
+        <li class="tab" data-tab="edit-profile">Edit Profile</li>
+        <li class="tab" data-tab="settings">Settings</li>
+      </ul>
+      <button class="logout-btn">Logout</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-section">
+      <!-- Basic Info -->
+      <div class="tab-content active" id="basic-info">
+        <div class="info-box">
+          <h2>Basic Information</h2>
+          <div class="info-group">
+            <div class="info-item">
+              <span class="info-label">Name:</span>
+              <span class="info-value">Ritik Lodhi</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Gender:</span>
+              <span class="info-value">Male</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Location:</span>
+              <span class="info-value">India</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Birthday:</span>
+              <span class="info-value">August 22, 2004</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Join Date:</span>
+              <span class="info-value">January 15, 2023</span>
+            </div>
+            <div class="info-item full-width">
+              <span class="info-label">Summary:</span>
+              <span class="info-value">Pre-final year Computer Science student with strong foundation in DSA and competitive programming. Passionate about building scalable apps and contributing to open-source.</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Website:</span>
+              <span class="info-value"><a href="#">yourwebsite.com</a></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">GitHub:</span>
+              <span class="info-value"><a href="https://github.com/Lodhi-ji" target="_blank">github.com/Lodhi-ji</a></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">LinkedIn:</span>
+              <span class="info-value"><a href="https://linkedin.com/in/ritik" target="_blank">linkedin.com/in/ritik</a></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">X:</span>
+              <span class="info-value"><a href="https://x.com/ritik" target="_blank">x.com/ritik</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Questions Asked -->
+      <div class="tab-content" id="questions-asked">
+        <div class="info-box">
+          <h2>Questions Asked</h2>
+          <div class="card">
+            <h4>How to optimize React app performance for large datasets?</h4>
+            <p>I’m experiencing lag when rendering large datasets in React. Tried memoization but still slow. Are there advanced techniques like lazy loading, code splitting, or virtualization?</p>
+          </div>
+          <div class="card">
+            <h4>What are the best practices for securing a Node.js API?</h4>
+            <p>I want to secure my Node.js API against vulnerabilities like SQL injection, XSS. Using JWT and HTTPS, but are there other things like CORS, rate limiting?</p>
+          </div>
+          <div class="card">
+            <h4>How does the event loop work in JavaScript?</h4>
+            <p>Can someone explain how async operations like Promises, setTimeout, and fetch interact with the call stack, task queue, and microtask queue?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Questions Answered -->
+      <div class="tab-content" id="questions-answered">
+        <div class="info-box">
+          <h2>Questions Answered</h2>
+          <div class="card">
+            <h4>Answer to: Difference between REST and GraphQL?</h4>
+            <p>REST uses multiple endpoints with fixed structures; GraphQL allows fetching specific data using a single endpoint. GraphQL is flexible for complex apps; REST is simpler for CRUD APIs.</p>
+          </div>
+          <div class="card">
+            <h4>Answer to: Best way to learn DSA?</h4>
+            <p>Start with arrays, linked lists, stacks. Use LeetCode for practice. Understand patterns, participate in contests, and read Cormen’s “Introduction to Algorithms”.</p>
+          </div>
+          <div class="card">
+            <h4>Answer to: Debugging memory leaks in Python?</h4>
+            <p>Use tools like memory_profiler, tracemalloc. Check for uncollected objects using gc module, and fix circular references or open file handles.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Profile -->
+      <div class="tab-content" id="edit-profile">
+        <div class="info-box">
+          <h2>Edit Profile</h2>
+          <form class="edit-form">
+            <div class="form-group">
+              <label for="edit-name">Name</label>
+              <input type="text" id="edit-name" value="Ritik Lodhi" />
+            </div>
+            <div class="form-group">
+              <label for="edit-location">Location</label>
+              <input type="text" id="edit-location" value="India" />
+            </div>
+            <div class="form-group">
+              <label for="edit-summary">Summary</label>
+              <textarea id="edit-summary" rows="4">Pre-final year CS student passionate about DSA and scalable apps.</textarea>
+            </div>
+            <div class="form-group">
+              <label for="edit-website">Website</label>
+              <input type="url" id="edit-website" value="yourwebsite.com" />
+            </div>
+            <div class="form-group">
+              <label for="edit-github">GitHub</label>
+              <input type="url" id="edit-github" value="https://github.com/Lodhi-ji" />
+            </div>
+            <div class="form-group">
+              <label for="edit-linkedin">LinkedIn</label>
+              <input type="url" id="edit-linkedin" value="https://linkedin.com/in/ritik" />
+            </div>
+            <div class="form-group">
+              <label for="edit-x">X</label>
+              <input type="url" id="edit-x" value="https://x.com/ritik" />
+            </div>
+            <button type="submit" class="save-btn">Save Changes</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="tab-content" id="settings">
+        <div class="info-box">
+          <h2>Settings</h2>
+          <div class="info-item">
+            <span class="info-label">Notification Preferences:</span>
+            <span class="info-value">Email: On | SMS: Off | Push: On</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Privacy Settings:</span>
+            <span class="info-value">Public Profile | Hide Email</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Account Status:</span>
+            <span class="info-value">Active | Last Login: 11:20 AM IST, July 14, 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
