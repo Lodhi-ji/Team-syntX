@@ -9,6 +9,10 @@ Our main Product is in Stack-It.Zip and stackit.zip.
 In Old Folder we had moved our old worked files.
 
 
+Username and password crdentials to check :
+
+Username : username@123
+Password : ritik@123
 
 # 📚 StackIt – Ask & Answer Platform
 
