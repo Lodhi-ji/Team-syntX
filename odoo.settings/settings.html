@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings - StackIt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(to bottom right, #e3f2fd, #e1e3ff);
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --border: rgba(0, 0, 0, 0.05);
+      --text-dark: #1e1e2f;
+      --text-light: #5c5c7a;
+      --accent: #6c63ff;
+      --tag-bg: #f0f2ff;
+    }
+
+    [data-theme="dark"] {
+      --bg-gradient: linear-gradient(to bottom right, #1a1a2e, #121212);
+      --card-bg: rgba(40, 40, 50, 0.95);
+      --border: rgba(255, 255, 255, 0.08);
+      --text-dark: #f1f1f1;
+      --text-light: #aaa;
+      --accent: #7f7bff;
+      --tag-bg: #2a2a4a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background-color: var(--card-bg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      position: relative;
+    }
+
+    .theme-toggle, .notification-icon {
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .avatar {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+    }
+
+    .profile-wrapper {
+      position: relative;
+    }
+
+    .profile-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 2.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      min-width: 160px;
+      z-index: 100;
+    }
+
+    .profile-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .profile-dropdown li {
+      padding: 8px 10px;
+      cursor: pointer;
+      color: var(--text-dark);
+      font-size: 14px;
+    }
+
+    .profile-dropdown li:hover {
+      background-color: var(--tag-bg);
+    }
+
+    .settings-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .settings-container h2 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--tag-bg);
+      color: var(--text-dark);
+      transition: all 0.2s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.3);
+    }
+
+    .save-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .save-btn:hover {
+      background: #554fff;
+    }
+
+    .tba {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: var(--tag-bg);
+      border-radius: 10px;
+      color: var(--text-light);
+      text-align: center;
+      font-style: italic;
+    }
+    .notification-icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+
+.notification-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.notification-icon:hover .notification-img {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.notification-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+  box-shadow: 0 0 0 2px var(--card-bg);
+}
+
+  </style>
+</head>
+<body data-theme="light">
+
+  <header>
+    <div class="logo">StackIt</div>
+    <div class="header-actions">
+      <div class="theme-toggle" onclick="toggleTheme()">🌓</div>
+     <div class="notification-icon" onclick="toggleDropdown('notifications')">
+  <img src="download.png" alt="Notifications" class="notification-img">
+  <span class="notification-count">2</span>
+</div>
+
+      <div class="profile-wrapper" onclick="toggleDropdown()">
+        <img class="avatar" src="https://i.pravatar.cc/40" alt="Profile">
+        <div class="profile-dropdown" id="profileDropdown">
+          <ul>
+            <li>My Profile</li>
+            <li>Settings</li>
+            <li>Logout</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="settings-container">
+    <h2>User Settings</h2>
+    <form>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" value="vedant_kenkre" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" value="vedant@gamil.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="theme">Default Theme</label>
+        <select id="theme">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="notifications">Enable Notifications</label>
+        <select id="notifications">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <button type="submit" class="save-btn">Save Changes</button>
+    </form>
+
+    <div class="tba">
+      ⚙️ More settings — <strong>To Be Announced...</strong>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      body.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+    }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById('profileDropdown');
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Close dropdown if clicked outside
+    document.addEventListener('click', function (e) {
+      const avatar = document.querySelector('.profile-wrapper');
+      const dropdown = document.getElementById('profileDropdown');
+      if (!avatar.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
